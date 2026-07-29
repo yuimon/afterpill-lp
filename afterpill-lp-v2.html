@@ -44,7 +44,15 @@ img{max-width:100%}
 }
 
 /* ===== Hero ===== */
-.hero{background:linear-gradient(135deg,#FF6B9D 0%,#E8919C 30%,#C8A2D8 70%,#9B6FB5 100%);padding:48px 20px 56px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.hero{
+  background:
+    linear-gradient(135deg,rgba(255,107,157,.80) 0%,rgba(232,145,156,.74) 30%,rgba(200,162,216,.74) 70%,rgba(155,111,181,.84) 100%),
+    url('images/hero-consultation.jpeg') center/cover no-repeat;
+  padding:56px 20px 64px;text-align:center;color:#fff;position:relative;overflow:hidden;
+  min-height:min(86vh,640px);display:flex;align-items:center;justify-content:center
+}
+@media(max-width:679px){.hero{background-position:58% center,58% center;min-height:min(90vh,620px)}}
+.hero>.container{width:100%;position:relative;z-index:1}
 .hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:rgba(255,255,255,.1);border-radius:50%}
 .hero::after{content:'';position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;background:rgba(255,255,255,.08);border-radius:50%}
 .hero h1{font-size:clamp(1.5rem,6vw,2rem);line-height:1.4;margin-bottom:10px;font-weight:800;text-shadow:0 2px 12px rgba(0,0,0,.15);position:relative;z-index:1}
@@ -55,7 +63,6 @@ img{max-width:100%}
 .hero-cta{display:inline-block;background:#fff;color:var(--rose-deep);font-weight:800;font-size:1.15rem;padding:16px 48px;border-radius:50px;box-shadow:0 6px 24px rgba(0,0,0,.15);transition:transform .2s,box-shadow .2s}
 .hero-cta:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.2)}
 .hero-cta-sub{font-size:.8rem;color:#fff;opacity:.85;text-decoration:underline;text-underline-offset:3px}
-.hero-img{width:100%;max-width:520px;border-radius:20px;margin:24px auto 0;display:block;box-shadow:0 12px 40px rgba(0,0,0,.15);border:4px solid rgba(255,255,255,.3);position:relative;z-index:1}
 
 /* ===== Section ===== */
 .section{padding:52px 0;position:relative}
@@ -182,23 +189,12 @@ img{max-width:100%}
 .alert-box ul li{font-size:.88rem;padding:5px 0;padding-left:28px;position:relative}
 .alert-box ul li::before{content:'⚠️';position:absolute;left:0}
 
-/* ===== FAQ ===== */
-.faq-item{background:#fff;border-radius:14px;margin-bottom:10px;border:1px solid var(--border);overflow:hidden;transition:box-shadow .2s}
-.faq-item:hover{box-shadow:0 2px 12px rgba(232,145,156,.08)}
-.faq-q{padding:16px 20px;font-weight:700;font-size:.9rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--text)}
-.faq-q::after{content:'＋';font-size:1.2rem;color:var(--pink);transition:transform .2s}
-.faq-q.open::after{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 20px}
-.faq-a.open{max-height:300px;padding:0 20px 16px}
-.faq-a p{font-size:.85rem;color:var(--text);line-height:1.6}
-
 /* ===== Footer ===== */
 .footer{background:linear-gradient(135deg,#4A3B40,#6B4D55);color:#fff;padding:36px 20px;text-align:center;font-size:.8rem}
 .footer p{margin-bottom:6px;opacity:.8}
 .footer a{color:var(--pink-light)}
 
 /* ===== Images ===== */
-.hero-img{width:100%;max-width:520px;border-radius:20px;margin:24px auto 0;display:block;box-shadow:0 12px 40px rgba(0,0,0,.15);border:4px solid rgba(255,255,255,.3)}
 .detail-img{width:100%;border-radius:14px;margin:16px 0;display:block;box-shadow:0 4px 16px rgba(0,0,0,.06)}
 .doctor-banner{display:flex;align-items:center;gap:20px;background:linear-gradient(135deg,var(--pink-soft),var(--purple-soft),var(--teal-soft));border-radius:18px;padding:24px;margin:24px 0;border:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,.04)}
 .doctor-banner img{width:120px;height:120px;border-radius:50%;object-fit:cover;flex-shrink:0;border:4px solid #fff;box-shadow:0 4px 16px rgba(0,0,0,.1)}
@@ -240,25 +236,29 @@ img{max-width:100%}
   .reveal{opacity:1;transform:none;transition:none}
 }
 
-/* ===== Sticky Mobile CTA ===== */
-.sticky-cta{position:fixed;left:0;right:0;bottom:-100px;z-index:50;background:#fff;padding:10px 16px;box-shadow:0 -4px 20px rgba(0,0,0,.1);transition:bottom .3s ease;display:none}
+/* ===== Sticky CTA (all widths) ===== */
+.sticky-cta{position:fixed;left:0;right:0;bottom:-160px;z-index:50;background:rgba(255,255,255,.97);backdrop-filter:blur(6px);padding:10px 16px;box-shadow:0 -4px 20px rgba(0,0,0,.12);transition:bottom .3s ease}
 .sticky-cta.show{bottom:0}
-.sticky-cta a{display:block;text-align:center;background:linear-gradient(135deg,var(--pink),var(--rose-deep));color:#fff;font-weight:700;font-size:.95rem;padding:14px;border-radius:50px;box-shadow:0 3px 12px rgba(232,145,156,.3)}
-@media(max-width:679px){.sticky-cta{display:block}}
+.sticky-cta-inner{max-width:960px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:8px}
+.sticky-cta-label{text-align:center;line-height:1.3}
+.sticky-cta-badge{display:inline-block;background:linear-gradient(135deg,#FFD700,#E8A87C);color:#fff;font-size:.68rem;font-weight:800;padding:3px 12px;border-radius:20px;white-space:nowrap}
+.sticky-cta-name{display:block;font-size:.85rem;font-weight:800;color:var(--text);margin-top:3px;white-space:nowrap}
+.sticky-cta a{display:block;text-align:center;background:linear-gradient(135deg,var(--pink),var(--rose-deep));color:#fff;font-weight:800;font-size:.95rem;padding:12px 32px;border-radius:50px;box-shadow:0 3px 12px rgba(232,145,156,.3);transition:transform .2s;width:100%}
+.sticky-cta a:hover{transform:translateY(-2px)}
+.sticky-cta a span{display:block;font-size:.7rem;font-weight:400;opacity:.9;margin-top:2px}
+@media(min-width:680px){
+  .sticky-cta{padding:12px 20px}
+  .sticky-cta-inner{flex-direction:row;justify-content:center;gap:24px}
+  .sticky-cta-label{text-align:right}
+  .sticky-cta-name{font-size:1rem}
+  .sticky-cta a{width:auto;min-width:320px;font-size:1.02rem;padding:14px 40px}
+}
 
 /* ===== Decorative blobs ===== */
 .section-deco{position:absolute;border-radius:50%;pointer-events:none;z-index:0}
 
 /* ===== Eyebrow label ===== */
 .eyebrow{display:inline-block;background:var(--pink-soft);color:var(--rose-deep);font-size:.75rem;font-weight:700;padding:5px 16px;border-radius:20px;margin-bottom:10px;white-space:nowrap}
-
-/* ===== Flow Steps (top-of-page) ===== */
-.flow-steps{display:flex;flex-direction:column;gap:0;max-width:520px;margin:0 auto}
-.flow-step{display:flex;align-items:flex-start;gap:14px;background:#fff;border-radius:16px;padding:16px 18px;border:1px solid var(--border);box-shadow:0 2px 12px rgba(0,0,0,.04)}
-.flow-step-num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--rose-deep));color:#fff;font-weight:800;font-size:1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(232,145,156,.3)}
-.flow-step-title{font-weight:700;font-size:.92rem;color:var(--text);margin-bottom:2px}
-.flow-step-desc{font-size:.8rem;color:var(--text-light)}
-.flow-arrow{text-align:center;color:var(--pink);font-size:1.2rem;margin:4px 0;line-height:1}
 
 /* ===== Mid-page CTA Banner ===== */
 .cta-banner{background:linear-gradient(135deg,var(--pink),var(--rose-deep));border-radius:20px;padding:24px;text-align:center;color:#fff;margin:32px auto 0;max-width:520px;box-shadow:0 8px 24px rgba(232,145,156,.25)}
@@ -283,74 +283,28 @@ img{max-width:100%}
       <a href="https://lhcn.li/line/source/6747094729d1b6abf7623215" class="hero-cta" target="_blank" rel="noopener">LINEで今すぐ処方を受ける</a>
       <a href="#ranking" class="hero-cta-sub">クリニックの詳細を見る</a>
     </div>
-    <img src="images/hero-consultation.jpeg" alt="オンライン診療でスマホから相談する女性" class="hero-img">
   </div>
 </section>
 
-<!-- ===== FLOW STEPS ===== -->
-<section class="section" style="padding-top:36px;padding-bottom:36px">
+<!-- ===== ALERT (urgency / self-identification) ===== -->
+<section class="section">
   <div class="container">
-    <div style="text-align:center"><span class="eyebrow">かんたん3ステップ</span></div>
-    <h2 class="section-title">利用の流れ</h2>
-    <p class="section-subtitle">スマホひとつで完結、通院は不要です</p>
-    <div class="flow-steps">
-      <div class="flow-step reveal">
-        <div class="flow-step-num">1</div>
-        <div>
-          <div class="flow-step-title">LINEで簡単問診</div>
-          <div class="flow-step-desc">24時間365日いつでも受付。質問に答えるだけで10秒完了。</div>
-        </div>
-      </div>
-      <div class="flow-arrow">▼</div>
-      <div class="flow-step reveal">
-        <div class="flow-step-num">2</div>
-        <div>
-          <div class="flow-step-title">医師がオンライン診察</div>
-          <div class="flow-step-desc">通院不要。最短5分でスマホから診察・処方が完了します。</div>
-        </div>
-      </div>
-      <div class="flow-arrow">▼</div>
-      <div class="flow-step reveal">
-        <div class="flow-step-num">3</div>
-        <div>
-          <div class="flow-step-title">最短37分でご自宅に</div>
-          <div class="flow-step-desc">匿名配送・プライベート発送で誰にもバレずに受け取れます。</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== QUICK COMPARISON TABLE ===== -->
-<section class="section section-gradient-1" style="overflow:hidden">
-  <div class="section-deco" style="top:-40px;right:-40px;width:160px;height:160px;background:rgba(232,145,156,.12)"></div>
-  <div class="section-deco" style="bottom:-30px;left:-30px;width:120px;height:120px;background:rgba(200,162,216,.12)"></div>
-  <div class="container" style="position:relative;z-index:1">
-    <div style="text-align:center"><span class="eyebrow">料金比較</span></div>
-    <h2 class="section-title">3クリニック比較表</h2>
-    <p class="section-subtitle">まずは料金・配送スピードをサクッと比較</p>
-    <div style="overflow-x:auto">
-      <table class="cmp-table" style="min-width:640px">
-        <tr style="background:linear-gradient(135deg,var(--pink-soft),var(--purple-soft))">
-          <th style="padding:12px;text-align:left">比較項目</th>
-          <th style="padding:12px;text-align:center;color:var(--rose-deep)">🥇 パーソナルケアクリニック</th>
-          <th style="padding:12px;text-align:center">🥈 国産ピル</th>
-          <th style="padding:12px;text-align:center">🥉 ウェルピル</th>
-        </tr>
-        <tr><td style="padding:10px;font-weight:600">診察料</td><td style="padding:10px;text-align:center">0円（配送料等1,093円）</td><td style="padding:10px;text-align:center">初診8,000円／再診5,000円</td><td style="padding:10px;text-align:center">初診8,000円／再診5,000円</td></tr>
-        <tr><td style="padding:10px;font-weight:600">お薬代</td><td style="padding:10px;text-align:center">¥7,980〜</td><td style="padding:10px;text-align:center">薬局にて別途支払い</td><td style="padding:10px;text-align:center">薬局にて別途支払い</td></tr>
-        <tr><td style="padding:10px;font-weight:600">最短受け取り</td><td style="padding:10px;text-align:center">特急便 最短37分</td><td style="padding:10px;text-align:center">東京18区 当日中</td><td style="padding:10px;text-align:center">最短30分（港・千代田・中央区）</td></tr>
-        <tr><td style="padding:10px;font-weight:600">薬の種類</td><td style="padding:10px;text-align:center">国内／海外正規品</td><td style="padding:10px;text-align:center">厚労省承認 国産のみ</td><td style="padding:10px;text-align:center">厚労省承認 国産のみ</td></tr>
-        <tr><td style="padding:10px;font-weight:600">診察時間</td><td style="padding:10px;text-align:center">24時間365日</td><td style="padding:10px;text-align:center">24時間365日</td><td style="padding:10px;text-align:center">24時間365日</td></tr>
-        <tr><td style="padding:10px;font-weight:600">特典</td><td style="padding:10px;text-align:center">安心セット無料（特急便限定）</td><td style="padding:10px;text-align:center">全国配送無料</td><td style="padding:10px;text-align:center">100,000処方実績</td></tr>
-        <tr><td style="padding:10px;font-weight:600"></td><td style="padding:10px;text-align:center"><a href="#detail-1" class="rank-btn" style="display:inline-block;padding:8px 20px">詳しく見る</a></td><td style="padding:10px;text-align:center"><a href="#detail-2" class="rank-btn" style="display:inline-block;padding:8px 20px">詳しく見る</a></td><td style="padding:10px;text-align:center"><a href="#detail-3" class="rank-btn" style="display:inline-block;padding:8px 20px">詳しく見る</a></td></tr>
-      </table>
+    <img src="images/alert-worried-woman.jpeg" alt="夜、不安そうにスマホを見る女性" class="section-img" style="max-width:360px;border-radius:16px">
+    <div class="alert-box">
+      <h3>⚠️ アフターピルが必要な方！</h3>
+      <ul>
+        <li>中出し、外だしされた時</li>
+        <li>避妊具（コンドーム）をつけてない</li>
+        <li>避妊具（コンドーム）が破けた</li>
+        <li>カウパー液（我慢汁）出た際ゴムなし</li>
+      </ul>
+      <p style="margin-top:16px;font-size:.88rem;position:relative;z-index:1">避妊の失敗と少しでも感じたら、アフターピルを1秒でも早く服用することがおすすめ！</p>
     </div>
   </div>
 </section>
 
 <!-- ===== RANKING ===== -->
-<section class="section" id="ranking">
+<section class="section section-gradient-1" id="ranking">
   <div class="container">
     <div class="section-num">🏆 当サイト人気No.1</div>
     <h2 class="section-title">おすすめはこちら</h2>
@@ -387,21 +341,8 @@ img{max-width:100%}
   </div>
 </section>
 
-<!-- ===== DOCTOR BANNER ===== -->
-<section class="section section-gradient-2">
-  <div class="container">
-    <div class="doctor-banner">
-      <img src="images/female-doctor.jpeg" alt="女性医師のポートレート">
-      <div class="doctor-banner-text">
-        <h3>医師が、あなたの選択に寄り添います</h3>
-        <p>オンライン診療で、深夜でも土日祝でも医師に相談できます。一人で悩まず、まずはLINEで気軽にご相談ください。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ===== BASIC KNOWLEDGE ===== -->
-<section class="section section-gradient-1">
+<section class="section">
   <div class="container">
     <div style="text-align:center"><span class="eyebrow">基礎知識</span></div>
     <h2 class="section-title">アフターピルとは？</h2>
@@ -435,25 +376,49 @@ img{max-width:100%}
   </div>
 </section>
 
-<!-- ===== ALERT ===== -->
-<section class="section">
+<!-- ===== DOCTOR BANNER ===== -->
+<section class="section section-gradient-2">
   <div class="container">
-    <img src="images/alert-worried-woman.jpeg" alt="夜、不安そうにスマホを見る女性" class="section-img" style="max-width:360px;border-radius:16px">
-    <div class="alert-box">
-      <h3>⚠️ アフターピルが必要な方！</h3>
-      <ul>
-        <li>中出し、外だしされた時</li>
-        <li>避妊具（コンドーム）をつけてない</li>
-        <li>避妊具（コンドーム）が破けた</li>
-        <li>カウパー液（我慢汁）出た際ゴムなし</li>
-      </ul>
-      <p style="margin-top:16px;font-size:.88rem;position:relative;z-index:1">避妊の失敗と少しでも感じたら、アフターピルを1秒でも早く服用することがおすすめ！</p>
+    <div class="doctor-banner">
+      <img src="images/female-doctor.jpeg" alt="女性医師のポートレート">
+      <div class="doctor-banner-text">
+        <h3>医師が、あなたの選択に寄り添います</h3>
+        <p>オンライン診療で、深夜でも土日祝でも医師に相談できます。一人で悩まず、まずはLINEで気軽にご相談ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUICK COMPARISON TABLE (ranking entry point) ===== -->
+<section class="section section-gradient-1" style="overflow:hidden">
+  <div class="section-deco" style="top:-40px;right:-40px;width:160px;height:160px;background:rgba(232,145,156,.12)"></div>
+  <div class="section-deco" style="bottom:-30px;left:-30px;width:120px;height:120px;background:rgba(200,162,216,.12)"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div style="text-align:center"><span class="eyebrow">総合人気ランキング</span></div>
+    <h2 class="section-title">3クリニックを徹底比較</h2>
+    <p class="section-subtitle">料金・配送スピードをひと目で比較できます</p>
+    <div style="overflow-x:auto">
+      <table class="cmp-table" style="min-width:640px">
+        <tr style="background:linear-gradient(135deg,var(--pink-soft),var(--purple-soft))">
+          <th style="padding:12px;text-align:left">比較項目</th>
+          <th style="padding:12px;text-align:center;color:var(--rose-deep)">🥇 パーソナルケアクリニック</th>
+          <th style="padding:12px;text-align:center">🥈 国産ピル</th>
+          <th style="padding:12px;text-align:center">🥉 ウェルピル</th>
+        </tr>
+        <tr><td style="padding:10px;font-weight:600">診察料</td><td style="padding:10px;text-align:center">0円（配送料等1,093円）</td><td style="padding:10px;text-align:center">初診8,000円／再診5,000円</td><td style="padding:10px;text-align:center">初診8,000円／再診5,000円</td></tr>
+        <tr><td style="padding:10px;font-weight:600">お薬代</td><td style="padding:10px;text-align:center">¥7,980〜</td><td style="padding:10px;text-align:center">薬局にて別途支払い</td><td style="padding:10px;text-align:center">薬局にて別途支払い</td></tr>
+        <tr><td style="padding:10px;font-weight:600">最短受け取り</td><td style="padding:10px;text-align:center">特急便 最短37分</td><td style="padding:10px;text-align:center">東京18区 当日中</td><td style="padding:10px;text-align:center">最短30分（港・千代田・中央区）</td></tr>
+        <tr><td style="padding:10px;font-weight:600">薬の種類</td><td style="padding:10px;text-align:center">国内／海外正規品</td><td style="padding:10px;text-align:center">厚労省承認 国産のみ</td><td style="padding:10px;text-align:center">厚労省承認 国産のみ</td></tr>
+        <tr><td style="padding:10px;font-weight:600">診察時間</td><td style="padding:10px;text-align:center">24時間365日</td><td style="padding:10px;text-align:center">24時間365日</td><td style="padding:10px;text-align:center">24時間365日</td></tr>
+        <tr><td style="padding:10px;font-weight:600">特典</td><td style="padding:10px;text-align:center">安心セット無料（特急便限定）</td><td style="padding:10px;text-align:center">全国配送無料</td><td style="padding:10px;text-align:center">100,000処方実績</td></tr>
+        <tr><td style="padding:10px;font-weight:600"></td><td style="padding:10px;text-align:center"><a href="#detail-1" class="rank-btn" style="display:inline-block;padding:8px 20px">詳しく見る</a></td><td style="padding:10px;text-align:center"><a href="#detail-2" class="rank-btn" style="display:inline-block;padding:8px 20px">詳しく見る</a></td><td style="padding:10px;text-align:center"><a href="#detail-3" class="rank-btn" style="display:inline-block;padding:8px 20px">詳しく見る</a></td></tr>
+      </table>
     </div>
   </div>
 </section>
 
 <!-- ===== DETAIL: 1位 ===== -->
-<section class="section section-gradient-1" id="detail-1">
+<section class="section" id="detail-1">
   <div class="container">
     <h2 class="section-title">1位：パーソナルケアクリニック</h2>
     <p class="section-subtitle">24時間365日・特急便最短37分・安心セット付き</p>
@@ -747,42 +712,15 @@ img{max-width:100%}
   </div>
 </section>
 
-<!-- ===== FAQ ===== -->
-<section class="section section-gradient-2">
-  <div class="container">
-    <div style="text-align:center"><span class="eyebrow">よくある質問</span></div>
-    <h2 class="section-title">❓ よくある質問</h2>
-    <p class="section-subtitle">よくあるご質問にお答えします</p>
-    <div class="faq-item">
-      <div class="faq-q">未成年ですが利用できますか？</div>
-      <div class="faq-a"><p>各クリニックにより異なりますが、パーソナルケアクリニックでは原則15歳以上の方で保護者の同意のもと、ご利用いただけます。</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">本当に国産の薬ですか？</div>
-      <div class="faq-a"><p>国産ピル・ウェルピルでは厚生労働省に承認された国産のお薬のみを取り扱っています。医師のオンライン診察のうえで処方します。</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">誰にもバレずに受け取れますか？</div>
-      <div class="faq-a"><p>はい。すべてのクリニックでプライベート発送に対応しています。外から中身が見えない、クリニック名の表示なし、自宅以外でも受け取れます。</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">どのくらいで届きますか？</div>
-      <div class="faq-a"><p>パーソナルケアクリニックの特急便なら最短37分、ウェルピルなら東京18区で当日中（港・千代田・中央区は最短30分）にお届け可能です。全国への発送も無料です。</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">診察料や薬代はいくらですか？</div>
-      <div class="faq-a"><p>パーソナルケアクリニックは72時間ピル¥7,980〜、120時間ピル¥12,525〜（配送料・診察料込み）。国産ピル・ウェルピルは初診8,000円／再診5,000円、お薬代は薬局にてお支払いとなります。</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">保険は使えますか？</div>
-      <div class="faq-a"><p>アフターピルの処方は自由診療となり、保険適用外となります。ただし、各クリニックで業界最安水準の価格設定となっています。</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== STICKY MOBILE CTA ===== -->
+<!-- ===== STICKY CTA ===== -->
 <div class="sticky-cta" id="sticky-cta">
-  <a href="https://lhcn.li/line/source/6747094729d1b6abf7623215" target="_blank" rel="noopener">今すぐ処方を受ける</a>
+  <div class="sticky-cta-inner">
+    <div class="sticky-cta-label">
+      <span class="sticky-cta-badge">当サイトオススメ度No.1</span>
+      <span class="sticky-cta-name">パーソナルケアクリニック</span>
+    </div>
+    <a href="https://lhcn.li/line/source/6747094729d1b6abf7623215" target="_blank" rel="noopener">今すぐ処方を受ける<span>診察料0円・最短37分でお届け</span></a>
+  </div>
 </div>
 
 <!-- ===== FOOTER ===== -->
@@ -796,14 +734,6 @@ img{max-width:100%}
 </footer>
 
 <script>
-// ===== FAQ Accordion =====
-document.querySelectorAll('.faq-q').forEach(q => {
-  q.addEventListener('click', () => {
-    q.classList.toggle('open');
-    q.nextElementSibling.classList.toggle('open');
-  });
-});
-
 // ===== Quiz =====
 const quizState = { 0: null, 1: null, 2: null };
 document.querySelectorAll('.quiz-option').forEach(opt => {
