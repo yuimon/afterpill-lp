@@ -47,7 +47,7 @@ img{max-width:100%}
 .hero{background:linear-gradient(135deg,#FF6B9D 0%,#E8919C 30%,#C8A2D8 70%,#9B6FB5 100%);padding:48px 20px 56px;text-align:center;color:#fff;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:rgba(255,255,255,.1);border-radius:50%}
 .hero::after{content:'';position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;background:rgba(255,255,255,.08);border-radius:50%}
-.hero h1{font-size:2rem;line-height:1.4;margin-bottom:16px;font-weight:800;text-shadow:0 2px 12px rgba(0,0,0,.15);position:relative;z-index:1}
+.hero h1{font-size:clamp(1.5rem,6vw,2rem);line-height:1.4;margin-bottom:16px;font-weight:800;text-shadow:0 2px 12px rgba(0,0,0,.15);position:relative;z-index:1}
 .hero-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:28px;position:relative;z-index:1}
 .hero-badge{background:rgba(255,255,255,.25);border:2px solid rgba(255,255,255,.6);border-radius:50px;padding:8px 18px;font-size:.85rem;font-weight:700;backdrop-filter:blur(4px);box-shadow:0 2px 8px rgba(0,0,0,.08)}
 .hero-pr{display:inline-block;background:rgba(255,255,255,.35);border-radius:20px;padding:4px 16px;font-size:.75rem;margin-bottom:20px;font-weight:600}
@@ -57,8 +57,12 @@ img{max-width:100%}
 
 /* ===== Section ===== */
 .section{padding:52px 0;position:relative}
-.section-title{text-align:center;font-size:1.6rem;font-weight:800;color:var(--text);margin-bottom:8px}
+.section-title{text-align:center;font-size:clamp(1.3rem,5vw,1.6rem);font-weight:800;color:var(--text);margin-bottom:8px}
 .section-subtitle{text-align:center;font-size:.9rem;color:var(--text-light);margin-bottom:32px}
+@media(max-width:480px){
+  .section{padding:36px 0}
+  .section-subtitle{margin-bottom:22px}
+}
 .section-num{display:inline-block;background:linear-gradient(135deg,var(--pink),var(--rose-deep));color:#fff;font-size:.8rem;font-weight:700;padding:6px 18px;border-radius:20px;margin-bottom:12px;box-shadow:0 2px 8px rgba(232,145,156,.3)}
 .section-gradient-1{background:linear-gradient(180deg,var(--pink-bg) 0%,#fff 100%)}
 .section-gradient-2{background:linear-gradient(180deg,var(--purple-soft) 0%,var(--pink-bg) 100%)}
@@ -68,13 +72,14 @@ img{max-width:100%}
 /* ===== Ranking Cards ===== */
 .ranking-grid{display:grid;grid-template-columns:1fr;gap:20px}
 @media(min-width:680px){.ranking-grid{grid-template-columns:repeat(3,1fr)}}
-.rank-card{background:#fff;border-radius:18px;overflow:hidden;border:2px solid var(--border);box-shadow:0 4px 20px rgba(232,145,156,.1);transition:transform .2s,box-shadow .2s}
+.rank-card{background:#fff;border-radius:18px;overflow:hidden;border:2px solid var(--border);box-shadow:0 4px 20px rgba(232,145,156,.1);transition:transform .2s,box-shadow .2s,opacity .6s ease,translate .6s ease;position:relative}
 .rank-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(232,145,156,.2)}
 .rank-card-top{padding:18px 16px 14px;text-align:center;position:relative}
 .rank-no{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;font-weight:800;font-size:1.2rem;color:#fff;margin-bottom:8px;box-shadow:0 3px 10px rgba(0,0,0,.12)}
 .rank-1 .rank-no{background:linear-gradient(135deg,#FFD700,#E8A87C)}
-.rank-1 .rank-card-top{background:linear-gradient(135deg,#FFF8E1,#FCE4E8)}
-.rank-1{border-color:#F0C674}
+.rank-1 .rank-card-top{background:linear-gradient(135deg,#FFF8E1,#FCE4E8);position:relative}
+.rank-1{border-color:#F0C674;box-shadow:0 4px 20px rgba(232,145,156,.1),0 0 0 3px rgba(255,215,0,.15)}
+.rank-1::before{content:'🏆 人気No.1';position:absolute;top:14px;left:-34px;background:linear-gradient(135deg,#FFD700,#E8A87C);color:#fff;font-size:.68rem;font-weight:800;padding:4px 40px;transform:rotate(-45deg);box-shadow:0 2px 8px rgba(0,0,0,.15);z-index:2}
 .rank-2 .rank-no{background:linear-gradient(135deg,#B8C5D6,#8FA3BD)}
 .rank-2 .rank-card-top{background:linear-gradient(135deg,#F0F0F5,#FCE4E8)}
 .rank-2{border-color:#B8C5D6}
@@ -128,6 +133,9 @@ img{max-width:100%}
 .detail-info-row:last-child{border-bottom:none}
 .detail-info-row dt{font-weight:600;color:var(--text-light);font-size:.85rem}
 .detail-info-row dd{font-size:.88rem;color:var(--text)}
+@media(max-width:480px){
+  .detail-info-row{grid-template-columns:1fr;gap:2px;padding:8px 0}
+}
 .detail-cta{margin:20px 24px 24px;text-align:center}
 .detail-cta a{display:inline-block;background:linear-gradient(135deg,var(--pink),var(--rose-deep));color:#fff;font-weight:700;padding:16px 52px;border-radius:50px;font-size:1.05rem;box-shadow:0 4px 16px rgba(232,145,156,.25);transition:transform .2s}
 .detail-cta a:hover{transform:translateY(-2px)}
@@ -222,6 +230,22 @@ img{max-width:100%}
 .cmp-table th{padding:10px;text-align:center}
 .cmp-table th:first-child{text-align:left}
 .cmp-table tr:nth-child(even){background:var(--pink-bg)}
+
+/* ===== Scroll Reveal ===== */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+}
+
+/* ===== Sticky Mobile CTA ===== */
+.sticky-cta{position:fixed;left:0;right:0;bottom:-100px;z-index:50;background:#fff;padding:10px 16px;box-shadow:0 -4px 20px rgba(0,0,0,.1);transition:bottom .3s ease;display:none}
+.sticky-cta.show{bottom:0}
+.sticky-cta a{display:block;text-align:center;background:linear-gradient(135deg,var(--pink),var(--rose-deep));color:#fff;font-weight:700;font-size:.95rem;padding:14px;border-radius:50px;box-shadow:0 3px 12px rgba(232,145,156,.3)}
+@media(max-width:679px){.sticky-cta{display:block}}
+
+/* ===== Decorative blobs ===== */
+.section-deco{position:absolute;border-radius:50%;pointer-events:none;z-index:0}
 </style>
 </head>
 <body>
@@ -243,8 +267,10 @@ img{max-width:100%}
 </section>
 
 <!-- ===== QUICK COMPARISON TABLE ===== -->
-<section class="section section-gradient-1">
-  <div class="container">
+<section class="section section-gradient-1" style="overflow:hidden">
+  <div class="section-deco" style="top:-40px;right:-40px;width:160px;height:160px;background:rgba(232,145,156,.12)"></div>
+  <div class="section-deco" style="bottom:-30px;left:-30px;width:120px;height:120px;background:rgba(200,162,216,.12)"></div>
+  <div class="container" style="position:relative;z-index:1">
     <h2 class="section-title">3クリニック比較表</h2>
     <p class="section-subtitle">まずは料金・配送スピードをサクッと比較</p>
     <div style="overflow-x:auto">
@@ -275,7 +301,7 @@ img{max-width:100%}
     <p class="section-subtitle">3つのオンラインクリニックを比較しました</p>
     <div class="ranking-grid">
       <!-- 1位 -->
-      <div class="rank-card rank-1">
+      <div class="rank-card rank-1 reveal">
         <div class="rank-card-top">
           <div class="rank-no">1</div>
           <div class="rank-label">人気No.1</div>
@@ -302,7 +328,7 @@ img{max-width:100%}
         </div>
       </div>
       <!-- 2位 -->
-      <div class="rank-card rank-2">
+      <div class="rank-card rank-2 reveal">
         <div class="rank-card-top">
           <div class="rank-no">2</div>
           <div class="rank-label">国産品にこだわる方に</div>
@@ -329,7 +355,7 @@ img{max-width:100%}
         </div>
       </div>
       <!-- 3位 -->
-      <div class="rank-card rank-3">
+      <div class="rank-card rank-3 reveal">
         <div class="rank-card-top">
           <div class="rank-no">3</div>
           <div class="rank-label">スピード重視</div>
@@ -382,7 +408,7 @@ img{max-width:100%}
       <img src="images/line-consultation.jpeg" alt="LINEでオンライン診察の様子" style="aspect-ratio:16/9;object-fit:cover">
     </div>
     <div class="info-grid" style="margin-top:16px">
-      <div class="info-card">
+      <div class="info-card reveal">
         <h3>💊 アフターピルとは？</h3>
         <ul>
           <li>性行為後にできる唯一の避妊方法</li>
@@ -391,7 +417,7 @@ img{max-width:100%}
           <li>性行為後、早めの服用が重要</li>
         </ul>
       </div>
-      <div class="info-card">
+      <div class="info-card reveal">
         <h3>📍 どこで買える？</h3>
         <p><strong>薬局では購入不可</strong></p>
         <p>アフターピルはマツキヨやココカラファインなどの薬局・ドラッグストアでは購入できません。購入には医師の診療が必須です。</p>
@@ -424,7 +450,7 @@ img{max-width:100%}
   <div class="container">
     <h2 class="section-title">1位：パーソナルケアクリニック</h2>
     <p class="section-subtitle">24時間365日・特急便最短37分・安心セット付き</p>
-    <div class="detail-card detail-1">
+    <div class="detail-card detail-1 reveal">
       <div class="detail-header">
         <div class="detail-badge">1</div>
         <h3>パーソナルケアクリニック</h3>
@@ -466,22 +492,22 @@ img{max-width:100%}
         </ul>
         <h4 style="margin:20px 0 8px;font-size:.95rem;color:var(--rose-deep)">💬 利用者の声</h4>
         <div class="reviews">
-          <div class="review-card">
+          <div class="review-card reveal">
             <div class="review-title">コンビニでバレずに受け取れた</div>
             <div class="review-meta">19歳 女性・東京都 N.Sさん／72時間ピル・エクスプレス便</div>
             <div class="review-text">実家暮らしのため彼氏との交際をバレないように相談しました。お薬の受け取り方の説明までしていただき、コンビニでも受け取りができて周りにバレずに受け取れました。</div>
           </div>
-          <div class="review-card">
+          <div class="review-card reveal">
             <div class="review-title">当日届いてよかった</div>
             <div class="review-meta">22歳 女性・埼玉県 S.Tさん／72時間ピル・エクスプレス便</div>
             <div class="review-text">行為中にゴムが外れてしまいました。お薬の違いの説明などを丁寧にしていただき、必要かどうかを相談の上処方していただきました。当日届いてよかったです。</div>
           </div>
-          <div class="review-card">
+          <div class="review-card reveal">
             <div class="review-title">安心セットにして本当によかった</div>
             <div class="review-meta">21歳 女性・神奈川県 L.Iさん／120時間ピル・通常配送</div>
             <div class="review-text">生理が来なくて不安になり、安心セットに同封されていた妊娠検査薬を使いました。結果は陰性でした。初めてで心配だったため安心セットにしましたが本当によかったです。</div>
           </div>
-          <div class="review-card">
+          <div class="review-card reveal">
             <div class="review-title">親にバレずにその日中に届いた</div>
             <div class="review-meta">15歳 女性／72時間ピル・エクスプレス便</div>
             <div class="review-text">親にバレないでその日に届きました。吐き気どめ・痛み止めをセットで落ち着いて服用することができました。</div>
@@ -500,7 +526,7 @@ img{max-width:100%}
   <div class="container">
     <h2 class="section-title">2位：国産ピル</h2>
     <p class="section-subtitle">厚生労働省承認の国産のみ・全国配送無料</p>
-    <div class="detail-card detail-2">
+    <div class="detail-card detail-2 reveal">
       <div class="detail-header">
         <div class="detail-badge">2</div>
         <h3>国産ピル</h3>
@@ -534,19 +560,19 @@ img{max-width:100%}
         </div>
         <h4 style="margin:20px 0 8px;font-size:.95rem;color:var(--rose-deep)">国産ピルが選ばれる4つの理由</h4>
         <div class="info-grid">
-          <div class="info-card" style="padding:16px">
+          <div class="info-card reveal" style="padding:16px">
             <h3 style="font-size:.95rem">01 承認された国産のみ</h3>
             <p style="font-size:.82rem">厚生労働省に承認された国産のお薬のみを取り扱っています。</p>
           </div>
-          <div class="info-card" style="padding:16px">
+          <div class="info-card reveal" style="padding:16px">
             <h3 style="font-size:.95rem">02 24時間365日・最短5分</h3>
             <p style="font-size:.82rem">医師がオンラインで診察。深夜でもLINEから受付できます。</p>
           </div>
-          <div class="info-card" style="padding:16px">
+          <div class="info-card reveal" style="padding:16px">
             <h3 style="font-size:.95rem">03 東京18区は当日お届け</h3>
             <p style="font-size:.82rem">東京18区は当日中にお薬をお届け。全国への発送も無料です。</p>
           </div>
-          <div class="info-card" style="padding:16px">
+          <div class="info-card reveal" style="padding:16px">
             <h3 style="font-size:.95rem">04 受け取り方法を選べる</h3>
             <p style="font-size:.82rem">全国140以上の提携薬局。全国配送も可能です。</p>
           </div>
@@ -577,7 +603,7 @@ img{max-width:100%}
   <div class="container">
     <h2 class="section-title">3位：ウェルピル</h2>
     <p class="section-subtitle">東京18区当日中・最短30分・100,000処方実績</p>
-    <div class="detail-card detail-3">
+    <div class="detail-card detail-3 reveal">
       <div class="detail-header">
         <div class="detail-badge">3</div>
         <h3>ウェルピル</h3>
@@ -593,15 +619,15 @@ img{max-width:100%}
         <img src="images/relieved-woman.jpeg" alt="安心して利用する女性" class="detail-img">
         <p class="img-caption">100,000件以上の処方実績で安心してお任せいただけます</p>
         <div class="stat-row">
-          <div class="stat-card stat-card-pink">
+          <div class="stat-card stat-card-pink reveal">
             <div class="stat-num" style="color:var(--rose-deep)">100,000</div>
             <div class="stat-label">処方実績（突破）</div>
           </div>
-          <div class="stat-card stat-card-green">
+          <div class="stat-card stat-card-green reveal">
             <div class="stat-num" style="color:var(--green-deep)">98%</div>
             <div class="stat-label">避妊成功率</div>
           </div>
-          <div class="stat-card stat-card-purple">
+          <div class="stat-card stat-card-purple reveal">
             <div class="stat-num" style="color:var(--purple-deep)">140+</div>
             <div class="stat-label">提携薬局（全国）</div>
           </div>
@@ -645,8 +671,10 @@ img{max-width:100%}
 </section>
 
 <!-- ===== EFFECTIVENESS ===== -->
-<section class="section section-gradient-4">
-  <div class="container">
+<section class="section section-gradient-4" style="overflow:hidden">
+  <div class="section-deco" style="top:-30px;left:-30px;width:140px;height:140px;background:rgba(255,138,128,.12)"></div>
+  <div class="section-deco" style="bottom:-40px;right:-20px;width:180px;height:180px;background:rgba(245,215,110,.15)"></div>
+  <div class="container" style="position:relative;z-index:1">
     <h2 class="section-title">📊 アフターピルの避妊率は？</h2>
     <p class="section-subtitle">服用するタイミングが早いほど成功率は高くなります</p>
     <div class="effect-chart">
@@ -739,6 +767,11 @@ img{max-width:100%}
   </div>
 </section>
 
+<!-- ===== STICKY MOBILE CTA ===== -->
+<div class="sticky-cta" id="sticky-cta">
+  <a href="https://lhcn.li/line/source/6747094729d1b6abf7623215" target="_blank" rel="noopener">今すぐ処方を受ける</a>
+</div>
+
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
   <div class="container">
@@ -807,6 +840,37 @@ document.getElementById('quiz-submit').addEventListener('click', () => {
   document.getElementById('quiz-result').classList.add('active');
   document.getElementById('quiz-result').scrollIntoView({ behavior: 'smooth' });
 });
+
+// ===== Scroll Reveal =====
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+}
+
+// ===== Sticky Mobile CTA =====
+const stickyCta = document.getElementById('sticky-cta');
+const heroEl = document.querySelector('.hero');
+const footerEl = document.querySelector('.footer');
+if (stickyCta && heroEl && footerEl) {
+  const toggleStickyCta = () => {
+    const pastHero = window.scrollY > heroEl.offsetHeight;
+    const footerRect = footerEl.getBoundingClientRect();
+    const reachedFooter = footerRect.top < window.innerHeight;
+    stickyCta.classList.toggle('show', pastHero && !reachedFooter);
+  };
+  window.addEventListener('scroll', toggleStickyCta, { passive: true });
+  toggleStickyCta();
+}
 </script>
 </body>
 </html>
