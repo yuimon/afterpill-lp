@@ -248,6 +248,23 @@ img{max-width:100%}
 
 /* ===== Decorative blobs ===== */
 .section-deco{position:absolute;border-radius:50%;pointer-events:none;z-index:0}
+
+/* ===== Eyebrow label ===== */
+.eyebrow{display:inline-block;background:var(--pink-soft);color:var(--rose-deep);font-size:.75rem;font-weight:700;padding:5px 16px;border-radius:20px;margin-bottom:10px}
+
+/* ===== Flow Steps (top-of-page) ===== */
+.flow-steps{display:flex;flex-direction:column;gap:0;max-width:520px;margin:0 auto}
+.flow-step{display:flex;align-items:flex-start;gap:14px;background:#fff;border-radius:16px;padding:16px 18px;border:1px solid var(--border);box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.flow-step-num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--rose-deep));color:#fff;font-weight:800;font-size:1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(232,145,156,.3)}
+.flow-step-title{font-weight:700;font-size:.92rem;color:var(--text);margin-bottom:2px}
+.flow-step-desc{font-size:.8rem;color:var(--text-light)}
+.flow-arrow{text-align:center;color:var(--pink);font-size:1.2rem;margin:4px 0;line-height:1}
+
+/* ===== Mid-page CTA Banner ===== */
+.cta-banner{background:linear-gradient(135deg,var(--pink),var(--rose-deep));border-radius:20px;padding:24px;text-align:center;color:#fff;margin:32px auto 0;max-width:520px;box-shadow:0 8px 24px rgba(232,145,156,.25)}
+.cta-banner p{font-size:.95rem;font-weight:700;margin-bottom:14px}
+.cta-banner a{display:inline-block;background:#fff;color:var(--rose-deep);font-weight:800;font-size:1rem;padding:14px 40px;border-radius:50px;box-shadow:0 4px 14px rgba(0,0,0,.12);transition:transform .2s}
+.cta-banner a:hover{transform:translateY(-2px)}
 </style>
 </head>
 <body>
@@ -270,11 +287,46 @@ img{max-width:100%}
   </div>
 </section>
 
+<!-- ===== FLOW STEPS ===== -->
+<section class="section" style="padding-top:36px;padding-bottom:36px">
+  <div class="container">
+    <div style="text-align:center"><span class="eyebrow">かんたん3ステップ</span></div>
+    <h2 class="section-title">利用の流れ</h2>
+    <p class="section-subtitle">スマホひとつで完結、通院は不要です</p>
+    <div class="flow-steps">
+      <div class="flow-step reveal">
+        <div class="flow-step-num">1</div>
+        <div>
+          <div class="flow-step-title">LINEで簡単問診</div>
+          <div class="flow-step-desc">24時間365日いつでも受付。質問に答えるだけで10秒完了。</div>
+        </div>
+      </div>
+      <div class="flow-arrow">▼</div>
+      <div class="flow-step reveal">
+        <div class="flow-step-num">2</div>
+        <div>
+          <div class="flow-step-title">医師がオンライン診察</div>
+          <div class="flow-step-desc">通院不要。最短5分でスマホから診察・処方が完了します。</div>
+        </div>
+      </div>
+      <div class="flow-arrow">▼</div>
+      <div class="flow-step reveal">
+        <div class="flow-step-num">3</div>
+        <div>
+          <div class="flow-step-title">最短37分でご自宅に</div>
+          <div class="flow-step-desc">匿名配送・プライベート発送で誰にもバレずに受け取れます。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== QUICK COMPARISON TABLE ===== -->
 <section class="section section-gradient-1" style="overflow:hidden">
   <div class="section-deco" style="top:-40px;right:-40px;width:160px;height:160px;background:rgba(232,145,156,.12)"></div>
   <div class="section-deco" style="bottom:-30px;left:-30px;width:120px;height:120px;background:rgba(200,162,216,.12)"></div>
   <div class="container" style="position:relative;z-index:1">
+    <div style="text-align:center"><span class="eyebrow">料金比較</span></div>
     <h2 class="section-title">3クリニック比較表</h2>
     <p class="section-subtitle">まずは料金・配送スピードをサクッと比較</p>
     <div style="overflow-x:auto">
@@ -351,6 +403,7 @@ img{max-width:100%}
 <!-- ===== BASIC KNOWLEDGE ===== -->
 <section class="section section-gradient-1">
   <div class="container">
+    <div style="text-align:center"><span class="eyebrow">基礎知識</span></div>
     <h2 class="section-title">アフターピルとは？</h2>
     <p class="section-subtitle">緊急避妊薬の基礎知識</p>
     <div class="img-grid-2">
@@ -374,6 +427,10 @@ img{max-width:100%}
         <p style="margin-top:12px"><strong>おすすめはオンラインクリニック</strong></p>
         <p>スマホからすぐに診察可能！通院せずに最短当日にアフターピルが届きます！</p>
       </div>
+    </div>
+    <div class="cta-banner reveal">
+      <p>迷ったら、まずはLINEで無料相談</p>
+      <a href="https://lhcn.li/line/source/6747094729d1b6abf7623215" target="_blank" rel="noopener">今すぐLINEで相談する</a>
     </div>
   </div>
 </section>
@@ -625,6 +682,7 @@ img{max-width:100%}
   <div class="section-deco" style="top:-30px;left:-30px;width:140px;height:140px;background:rgba(255,138,128,.12)"></div>
   <div class="section-deco" style="bottom:-40px;right:-20px;width:180px;height:180px;background:rgba(245,215,110,.15)"></div>
   <div class="container" style="position:relative;z-index:1">
+    <div style="text-align:center"><span class="eyebrow">データで見る効果</span></div>
     <h2 class="section-title">📊 アフターピルの避妊率は？</h2>
     <p class="section-subtitle">服用するタイミングが早いほど成功率は高くなります</p>
     <div class="effect-chart">
@@ -641,6 +699,10 @@ img{max-width:100%}
         <div class="bar-track"><div class="bar-fill bar-72" style="width:72%">72%</div></div>
       </div>
       <p class="note">※有効時間を過ぎてしまうと避妊率は一気に下がります。72時間以降も効果の高い120時間有効のピルが安心です。</p>
+    </div>
+    <div class="cta-banner reveal">
+      <p>1秒でも早い服用が大切です。今すぐ処方を</p>
+      <a href="https://lhcn.li/line/source/6747094729d1b6abf7623215" target="_blank" rel="noopener">LINEで今すぐ処方を受ける</a>
     </div>
   </div>
 </section>
@@ -688,6 +750,7 @@ img{max-width:100%}
 <!-- ===== FAQ ===== -->
 <section class="section section-gradient-2">
   <div class="container">
+    <div style="text-align:center"><span class="eyebrow">よくある質問</span></div>
     <h2 class="section-title">❓ よくある質問</h2>
     <p class="section-subtitle">よくあるご質問にお答えします</p>
     <div class="faq-item">
