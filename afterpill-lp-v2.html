@@ -57,12 +57,8 @@ img{max-width:100%}
 .hero::after{content:'';position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;background:rgba(255,255,255,.08);border-radius:50%}
 .hero h1{font-size:clamp(1.5rem,6vw,2rem);line-height:1.4;margin-bottom:10px;font-weight:800;text-shadow:0 2px 12px rgba(0,0,0,.15);position:relative;z-index:1}
 .hero-lead{font-size:.95rem;line-height:1.7;margin:0 auto 20px;max-width:420px;position:relative;z-index:1;opacity:.95}
-.hero-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:24px;position:relative;z-index:1}
+.hero-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;position:relative;z-index:1}
 .hero-badge{background:rgba(255,255,255,.25);border:2px solid rgba(255,255,255,.6);border-radius:50px;padding:6px 14px;font-size:.78rem;font-weight:700;backdrop-filter:blur(4px);box-shadow:0 2px 8px rgba(0,0,0,.08);white-space:nowrap}
-.hero-cta-group{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:12px}
-.hero-cta{display:inline-block;background:#fff;color:var(--rose-deep);font-weight:800;font-size:1.15rem;padding:16px 48px;border-radius:50px;box-shadow:0 6px 24px rgba(0,0,0,.15);transition:transform .2s,box-shadow .2s}
-.hero-cta:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.2)}
-.hero-cta-sub{font-size:.8rem;color:#fff;opacity:.85;text-decoration:underline;text-underline-offset:3px}
 
 /* ===== Section ===== */
 .section{padding:52px 0;position:relative}
@@ -279,10 +275,6 @@ img{max-width:100%}
       <span class="hero-badge">🕐 24時間365日診察</span>
       <span class="hero-badge">🔒 匿名配送</span>
     </div>
-    <div class="hero-cta-group">
-      <a href="https://lhcn.li/line/source/6747094729d1b6abf7623215" class="hero-cta" target="_blank" rel="noopener">LINEで今すぐ処方を受ける</a>
-      <a href="#ranking" class="hero-cta-sub">クリニックの詳細を見る</a>
-    </div>
   </div>
 </section>
 
@@ -303,46 +295,8 @@ img{max-width:100%}
   </div>
 </section>
 
-<!-- ===== RANKING ===== -->
-<section class="section section-gradient-1" id="ranking">
-  <div class="container">
-    <div class="section-num">🏆 当サイト人気No.1</div>
-    <h2 class="section-title">おすすめはこちら</h2>
-    <p class="section-subtitle">最短37分でお届け・24時間365日対応のオンラインクリニック</p>
-    <div class="ranking-grid" style="grid-template-columns:1fr;max-width:400px;margin:0 auto">
-      <!-- 1位 -->
-      <div class="rank-card rank-1 reveal">
-        <div class="rank-card-top">
-          <div class="rank-no">1</div>
-          <div class="rank-label">人気No.1</div>
-          <div class="rank-name">パーソナルケアクリニック</div>
-          <span class="rank-tag">24時間・特急便最短37分</span>
-        </div>
-        <div class="rank-card-body">
-          <ul class="rank-features">
-            <li>24時間365日営業</li>
-            <li>特急便・最短37分でお届け</li>
-            <li>安心セット無料（特急便限定）</li>
-            <li>2回目以降最大2,000円割引</li>
-          </ul>
-          <table class="rank-info-table">
-            <tr><th>ピル料金</th><td>お薬代 ¥7,980〜</td></tr>
-            <tr><th>配送</th><td>最短37分・即日お届け可</td></tr>
-            <tr><th>診察時間</th><td>24時間営業・土日祝対応</td></tr>
-          </table>
-          <div class="rank-pay">
-            <span>クレカ</span><span>銀行振込</span><span>後払い</span><span>PayPay</span>
-          </div>
-          <div class="rank-recommend"><strong>こんな方におすすめ</strong><br>土日・深夜などで病院が空いていない方におすすめ！</div>
-          <a href="https://lhcn.li/line/source/6747094729d1b6abf7623215" class="rank-btn" target="_blank" rel="noopener">今すぐ処方を受ける</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ===== BASIC KNOWLEDGE ===== -->
-<section class="section">
+<section class="section section-gradient-1">
   <div class="container">
     <div style="text-align:center"><span class="eyebrow">基礎知識</span></div>
     <h2 class="section-title">アフターピルとは？</h2>
@@ -384,6 +338,44 @@ img{max-width:100%}
       <div class="doctor-banner-text">
         <h3>医師が、あなたの選択に寄り添います</h3>
         <p>オンライン診療で、深夜でも土日祝でも医師に相談できます。一人で悩まず、まずはLINEで気軽にご相談ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RANKING ===== -->
+<section class="section" id="ranking">
+  <div class="container">
+    <div class="section-num">🏆 当サイト人気No.1</div>
+    <h2 class="section-title">おすすめはこちら</h2>
+    <p class="section-subtitle">最短37分でお届け・24時間365日対応のオンラインクリニック</p>
+    <div class="ranking-grid" style="grid-template-columns:1fr;max-width:400px;margin:0 auto">
+      <!-- 1位 -->
+      <div class="rank-card rank-1 reveal">
+        <div class="rank-card-top">
+          <div class="rank-no">1</div>
+          <div class="rank-label">人気No.1</div>
+          <div class="rank-name">パーソナルケアクリニック</div>
+          <span class="rank-tag">24時間・特急便最短37分</span>
+        </div>
+        <div class="rank-card-body">
+          <ul class="rank-features">
+            <li>24時間365日営業</li>
+            <li>特急便・最短37分でお届け</li>
+            <li>安心セット無料（特急便限定）</li>
+            <li>2回目以降最大2,000円割引</li>
+          </ul>
+          <table class="rank-info-table">
+            <tr><th>ピル料金</th><td>お薬代 ¥7,980〜</td></tr>
+            <tr><th>配送</th><td>最短37分・即日お届け可</td></tr>
+            <tr><th>診察時間</th><td>24時間営業・土日祝対応</td></tr>
+          </table>
+          <div class="rank-pay">
+            <span>クレカ</span><span>銀行振込</span><span>後払い</span><span>PayPay</span>
+          </div>
+          <div class="rank-recommend"><strong>こんな方におすすめ</strong><br>土日・深夜などで病院が空いていない方におすすめ！</div>
+          <a href="https://lhcn.li/line/source/6747094729d1b6abf7623215" class="rank-btn" target="_blank" rel="noopener">今すぐ処方を受ける</a>
+        </div>
       </div>
     </div>
   </div>
